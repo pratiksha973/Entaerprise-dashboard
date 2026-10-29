@@ -7,10 +7,8 @@ function Settings() {
   if (savedSettings) {
     return JSON.parse(savedSettings);
   }
-return saved
-    ? JSON.parse(saved)
-    : {
-        fullName: "Pratiksha",
+return {
+       fullName: "Pratiksha",
         email: "pratiksha@example.com",
         role: "Frontend Developer",
         language: "English",
@@ -69,7 +67,7 @@ useEffect(() => {
 
             <input
               type="text"
-              name="name"
+              name="fullname"
               value={settings.fullName}
               onChange={handleChange}
             />
@@ -211,20 +209,10 @@ useEffect(() => {
 
       <div className="settings-actions">
 
-        <button
-  className="primary-btn"
-  onClick={() => {
-    localStorage.setItem(
-      "projectflow_settings",
-      JSON.stringify(settings)
-    );
-
-    alert("Settings saved successfully!");
-  }}
->
+       
+<button className="primary-btn" onClick={handleSave}>
   Save Changes
 </button>
-
       </div>
 
     </div>
